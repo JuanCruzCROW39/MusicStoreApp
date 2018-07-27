@@ -1,0 +1,21 @@
+﻿@using  Domain.Entities
+@model IEnumerable<Album>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@(Html.EJ().Grid<Album>("AlbumGrid")
+        .Datasource(Model)
+        .Columns(c=>
+        {
+            c.Field(m => m.AlbumId).Add();
+            c.Field(m => m.Titulo).Add();
+            c.Field(m => m.ArtistaId).Add();
+            c.Field(m => m.GeneroId).Add();
+            c.Field(m => m.Precio).Add();
+        })
+        .Locale("es-ES")
+        )
